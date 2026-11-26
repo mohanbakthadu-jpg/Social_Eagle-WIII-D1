@@ -1,0 +1,60 @@
+I wanted to build Knowledge Graph using langchain framework in PYTHON...step by step
+
+Document Loader > Entities Extractions > Relationships > Knowledge Graph > Querying > Visualization
+
+Let's build it on "neo4j DB" and will move into "NetworkX DB"
+Help with step by step codings for each phase / stage
+To start with, guide me the packages that are to be installed
+
+# PHASE 1 — Document Loading
+  PDF → Text → Chunks
+  - Load documents (PDF, TXT, DOCX, HTML), extract text, and split into manageable chunks for LLM processing.
+
+# PHASE 2 — Entity Extraction
+  LLM-based NER → Entities list
+
+# PHASE 3 — Relationship Mapping
+  LLM-based relation triples → (Entity1) —[RELATION]→ (Entity2)
+
+# PHASE 4 — Build Knowledge Graph in Neo4j
+  Cypher queries → Create nodes + relationships
+
+# PHASE 5 — Querying
+  GraphCypherQAChain (LangChain)
+
+# PHASE 6 — Visualization
+  NetworkX + PyVis
+
+# PHASE 7 — Export Neo4j Graph → NetworkX
+  Cypher → Python → NetworkX graph object
+
+chunk_size=800 → good balance for entity extraction
+chunk_overlap=100 → preserves context across chunks
+
+COMMANDS:
+python -m venv venv
+venv\Scripts\Activate
+
+python Entities_Establishment.py
+python -u Entities_Establishment.py
+python -m pip install -r requirements.txt
+
+#phase-3:
+triples = extract_relationships(chunks, entities)
+A list of triples
+Each triple has subject → relation → object
+Perfectly structured for Neo4j ingestion
+Ready for Phase 4: Build Knowledge Graph in Neo4j
+
+
+chunks = load_and_split_pdf("data/sample.pdf")
+entities = extract_entities(chunks)
+triples = extract_relationships(chunks, entities)
+build_knowledge_graph(triples)
+
+neo4j host resolve:
+nslookup aa339f0f.databases.neo4j.io
+
+Non-authoritative answer:
+Name:    aa339f0f.databases.neo4j.io
+Address:  34.126.161.242

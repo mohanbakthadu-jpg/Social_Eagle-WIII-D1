@@ -1,0 +1,15 @@
+langchain
+langchain-openai
+langchain-neo4j
+neo4j
+python-dotenv
+tiktoken
+pypdf
+langchain-text-splitters
+langchain-huggingface
+transformers
+sentence-transformers
+neo4j-graphrag
+networkx
+matplotlib
+pyvis
